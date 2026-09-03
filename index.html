@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f2fb" />
+    <meta name="description" content="Ishita Bhatt is an ECE student building AI, web, backend, and cloud solutions." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Ishita Bhatt — Software & AI Engineer" />
+    <meta property="og:description" content="ECE student with experience in AI, web, backend development, technical research, and leadership." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/favicon.svg" />
+    <meta property="og:image:alt" content="Ishita Bhatt portfolio mark" />
+    <meta property="og:site_name" content="Ishita Bhatt" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ishita Bhatt — Software & AI Engineer" />
+    <meta name="twitter:description" content="ECE student with experience in AI, web, backend development, technical research, and leadership." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Ishita Bhatt — Software & AI Engineer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('portfolio:theme')
+          const theme = saved === 'light' || saved === 'dark'
+            ? saved
+            : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          document.documentElement.dataset.theme = theme
+          document.documentElement.style.colorScheme = theme
+        } catch {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
