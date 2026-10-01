@@ -171,9 +171,9 @@ section[id] { scroll-margin-top:7rem; }
 .puzzle-piece--dark .puzzle-piece__shape path { fill:var(--ink); stroke:var(--paper); }
 .puzzle-piece__content { position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:1.15rem; }
 .puzzle-piece:hover { z-index:4; transform:translateY(-5px); filter:drop-shadow(0 13px 11px rgb(24 24 22/.16)); }
-.skill-piece__top { display:flex; align-items:center; justify-content:space-between; color:var(--muted); }
-.skill-piece__top span { font-size:.6rem; letter-spacing:.1em; }
-.skill-logo { width:20px; height:20px; object-fit:contain; }
+.skill-piece__body { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; min-height:0; gap:.7rem; text-align:center; }
+.skill-logo { width:clamp(2.75rem,5vw,4.5rem); height:clamp(2.75rem,5vw,4.5rem); min-height:0; object-fit:contain; object-position:center; flex:0 0 auto; }
+.skill-piece__copy { min-height:0; }
 .skill-piece h3 { margin:0 0 .3rem; font-family:var(--font-display); font-size:clamp(1.45rem,2.3vw,2.15rem); line-height:1; letter-spacing:-.025em; text-transform:uppercase; }
 .skill-piece p { margin:0; color:var(--accent); font-size:.6rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
 @media (max-width:700px) { .skills-tabs{display:grid;grid-template-columns:1fr}.skills-tabs button{justify-content:flex-start;min-height:46px;border-right:0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}.skills-tabs button:last-child{border-bottom:0}.skills-board-frame{min-height:518px;padding:.75rem}.skills-board-meta{min-height:58px;display:grid;gap:.25rem}.skills-board-meta span:last-child{text-align:left}.skills-board{min-height:430px;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(130px,1fr));padding:12px 8px}.puzzle-piece{min-height:130px}.puzzle-piece__content{padding:.85rem}.skill-piece h3{font-size:clamp(1.15rem,5vw,1.5rem)} }
@@ -279,7 +279,10 @@ section[id] { scroll-margin-top:7rem; }
 .projects-page-nav .container-shell { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:2rem; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; }
 .projects-page-nav a { display:flex; align-items:center; gap:.45rem; }
 .projects-page { min-height:100vh; padding:9rem 0 7rem; background:var(--paper-deep); }
-.privacy-page .project-detail-layout { grid-template-columns:minmax(0,1fr); max-width:860px; padding:clamp(3rem,6vw,5rem) 0 0; }
+.privacy-page .project-detail-layout { grid-template-columns:minmax(0,1fr); max-width:none; padding:clamp(3rem,6vw,5rem) 0 0; }
+.privacy-page .case-study-sections h2 { font-size:clamp(1.6rem,3.4vw,2.8rem); }
+.privacy-page .case-study-sections p { max-width:none; font-size:clamp(.9rem,.7vw + .5rem,1.05rem); }
+.privacy-page .case-study-sections section { grid-template-columns:clamp(42px,6vw,72px) minmax(0,1fr); gap:clamp(1rem,3vw,2rem); }
 .projects-page-header { display:grid; grid-template-columns:1.4fr .6fr; gap:3rem; align-items:end; padding-bottom:5rem; }
 .projects-page-header .eyebrow { grid-column:1/-1; }
 .projects-page-header h1 { font-size:clamp(4rem,10vw,8.5rem); }
@@ -481,9 +484,9 @@ h1 { font-size: var(--type-h1); line-height: var(--leading-display); font-weight
 h2, .section-heading h2, footer h2 { font-size: var(--type-h2); line-height: var(--leading-heading); font-weight: 600; letter-spacing: 0; text-transform: none; }
 h3 { font-size: var(--type-h3); line-height: var(--leading-heading); font-weight: 600; letter-spacing: 0; text-transform: none; }
 p { max-width: var(--measure-body); }
-.eyebrow, .hero-utility, .intro-kicker, .tile-meta, .project-card__meta, .project-tech, .skills-board-meta, .editorial-index, .certification-index, .certification-card time, .achievement-card__meta, .project-detail-layout aside > p, .project-detail-layout aside li, .project-siblings span, .home-footer, .nav-links, .availability, .puzzle-intro__label, .puzzle-intro__status, .puzzle-intro__back span, .puzzle-intro__counter, .stat-label, .stat-subtitle, .skill-piece__top span { font-family: var(--font-mono); letter-spacing: .04em; }
+.eyebrow, .hero-utility, .intro-kicker, .tile-meta, .project-card__meta, .project-tech, .skills-board-meta, .editorial-index, .certification-index, .certification-card time, .achievement-card__meta, .project-detail-layout aside > p, .project-detail-layout aside li, .project-siblings span, .home-footer, .nav-links, .availability, .puzzle-intro__label, .puzzle-intro__status, .puzzle-intro__back span, .puzzle-intro__counter, .stat-label, .stat-subtitle { font-family: var(--font-mono); letter-spacing: .04em; }
 .eyebrow, .hero-utility, .intro-kicker, .tile-meta, .skills-board-meta, .editorial-index, .certification-index, .achievement-card__meta, .puzzle-intro__label, .puzzle-intro__status, .puzzle-intro__back span, .stat-label { font-size: var(--type-label); }
-.nav-links, .availability, .project-card__meta, .project-tech, .certification-card time, .project-detail-layout aside li, .project-siblings span, .home-footer, .puzzle-intro__counter, .skill-piece__top span { font-size: var(--type-caption); }
+.nav-links, .availability, .project-card__meta, .project-tech, .certification-card time, .project-detail-layout aside li, .project-siblings span, .home-footer, .puzzle-intro__counter { font-size: var(--type-caption); }
 .hero-heading h1 { max-width: 9ch; font-size: var(--type-display); line-height: .98; text-transform: none; }
 .hero-statement { max-width: 25ch; margin-top: 1.35rem; font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.25; font-weight: 500; text-transform: none; }
 .hero-summary > p, .section-heading > div > p, .editorial-copy, .project-card__body > p, .contact-layout > div > p { font-size: var(--type-body); line-height: var(--leading-body); }
@@ -564,7 +567,7 @@ body { background-color: var(--paper); background-image: linear-gradient(to righ
 .hobbies-home { background: color-mix(in srgb, var(--paper-deep) 44%, var(--paper)); }
 .hobbies-home .section-heading { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
 .hobbies-home .section-heading > div { grid-template-columns: minmax(0, 1fr) minmax(170px, .7fr); }
-.hobbies-grid { display:flex; flex-wrap:wrap; width:100%; border-left:0; border-top:0; gap:1rem; }
+.hobbies-grid { display:flex; flex-wrap:wrap; justify-content:center; width:100%; border-left:0; border-top:0; gap:1rem; }
 .hobbies-grid > div { flex:0 0 min(14rem, 100%); }
 .hobby-card,.hobby-card:first-child { box-sizing:border-box; flex:0 0 min(14rem, 100%); min-height:8.5rem; gap:.8rem; padding:1.15rem; border:1px solid var(--line); background:color-mix(in srgb,var(--paper) 78%,var(--white)); }
 .hobby-card h3 { margin: 0; }
@@ -621,16 +624,24 @@ body { background-color: var(--paper); background-image: linear-gradient(to righ
   .project-card { transition:none; }
 }
 .projects-home { position: relative; background-color: var(--paper-deep); background-image: linear-gradient(135deg, color-mix(in srgb, var(--paper) 26%, transparent) 25%, transparent 25%, transparent 50%, color-mix(in srgb, var(--paper) 26%, transparent) 50%, color-mix(in srgb, var(--paper) 26%, transparent) 75%, transparent 75%); background-size: 56px 56px; }
-.featured-project-grid { max-width: 760px; grid-template-columns:repeat(2, minmax(0, 1fr)); grid-template-rows:repeat(2, minmax(0, 1fr)); gap:1rem; }
+.featured-project-grid { width:100%; max-width:760px; margin-inline:auto; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); grid-template-rows:none; grid-auto-rows:1fr; gap:1rem; }
 .featured-project-grid > .project-card:first-child { grid-row:auto; }
 .featured-project-grid .project-card { min-height:0; }
 .featured-project-grid .project-media { min-height:0; aspect-ratio:3 / 2; }
+.skills-board { padding:clamp(1.25rem,2.5vw,1.75rem); }
+.puzzle-piece__content { box-sizing:border-box; min-width:0; padding:clamp(1.55rem,3vw,2.05rem); }
+.skill-piece h3 { font-size:clamp(1.05rem,1.55vw,1.5rem); }
+.skill-piece p { font-size:clamp(.55rem,.62vw,.64rem); line-height:1.35; }
+.skills-board-frame { min-height:0; }
+.skills-board { width:100%; max-width:54rem; min-height:0; margin-inline:auto; grid-template-rows:none; grid-auto-rows:auto; }
+.skills-board__cell { min-height:0; aspect-ratio:1; }
+.puzzle-piece { min-height:0; }
+.skill-piece h3,.skill-piece p { overflow-wrap:anywhere; }
 .contact-home { position: relative; overflow: hidden; }
-.contact-home::before { content: "09 / CONTACT"; position: absolute; top: clamp(2rem, 5vw, 4rem); right: max(1rem, calc((100vw - 1180px) / 2)); color: color-mix(in srgb, var(--paper) 35%, transparent); font: 500 .62rem var(--font-mono); letter-spacing: .08em; }
 .contact-layout { position: relative; z-index: 1; }
 [data-theme="dark"] body { background-image: linear-gradient(to right, rgb(241 238 231 / .025) 1px, transparent 1px), linear-gradient(to bottom, rgb(241 238 231 / .025) 1px, transparent 1px); }
 [data-theme="dark"] .home-hero { background-image: linear-gradient(to right, rgb(241 238 231 / .045) 1px, transparent 1px), linear-gradient(to bottom, rgb(241 238 231 / .045) 1px, transparent 1px); }
 [data-theme="dark"] .skills-home { background-image: radial-gradient(rgb(241 238 231 / .13) .6px, transparent .6px); }
 [data-theme="dark"] .projects-home { background-image: linear-gradient(135deg, rgb(241 238 231 / .035) 25%, transparent 25%, transparent 50%, rgb(241 238 231 / .035) 50%, rgb(241 238 231 / .035) 75%, transparent 75%); }
 @media (max-width: 900px) { .home-hero::before, .home-hero::after { display: none; } .hero-layout { grid-template-columns: 1fr; } .hero-summary { padding-left: 0; } .experience-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hobbies-home .section-heading, .hobbies-home .section-heading > div { grid-template-columns: 1fr; } }
-@media (max-width: 700px) { body { background-size: 48px 48px; } .hero-heading { padding-left: 0; } .hero-heading::before { display: none; } .about-home::after { right: -.5rem; bottom: 2rem; font-size: 8rem; } .compact-actions { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 25%, transparent); padding: 1rem 0 0; } .experience-list { grid-template-columns: 1fr; } .experience-card, .experience-card:first-child { min-height: 320px; } .featured-project-grid { max-width:none; grid-template-columns:1fr; grid-template-rows:none; } .featured-project-grid .project-media { aspect-ratio:3 / 2; } .skills-home > .container-shell::after, .projects-home > .container-shell::after { width: 30%; } }
+@media (max-width: 700px) { body { background-size: 48px 48px; } .hero-heading { padding-left: 0; } .hero-heading::before { display: none; } .about-home::after { right: -.5rem; bottom: 2rem; font-size: 8rem; } .compact-actions { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 25%, transparent); padding: 1rem 0 0; } .experience-list { grid-template-columns: 1fr; } .experience-card, .experience-card:first-child { min-height: 320px; } .featured-project-grid { max-width:none; grid-auto-rows:auto; } .featured-project-grid .project-media { aspect-ratio:3 / 2; } .skills-board { min-height:0; grid-template-rows:none; grid-auto-rows:auto; padding:1rem; } .skills-board__cell,.puzzle-piece { min-height:0; } .puzzle-piece__content { padding:1.1rem; } .skills-home > .container-shell::after, .projects-home > .container-shell::after { width: 30%; } }
