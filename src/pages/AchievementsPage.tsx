@@ -2,8 +2,10 @@ import { ArrowLeft, ExternalLink, Trophy } from 'lucide-react'
 import { Container } from '../components/Container'
 import { PageTransition } from '../components/PageTransition'
 import { portfolio } from '../data/portfolio'
+import { useCardTilt } from '../hooks/useCardTilt'
 
 export function AchievementsPage() {
+  const tiltCardProps = useCardTilt()
   const achievementGroups = [
     { title: 'Achievements', items: portfolio.achievements },
     { title: 'Certificates', items: portfolio.certifications },
@@ -37,7 +39,7 @@ export function AchievementsPage() {
 
                 <div className="achievement-grid">
                   {group.items.map(item => (
-                    <article className="achievement-card" key={`${group.title}-${item.title}`}>
+                    <article className="achievement-card tilt-card" key={`${group.title}-${item.title}`} {...tiltCardProps}>
                       <div className="achievement-card__meta">
                         <span>{item.type}</span>
                         <time>{item.year}</time>

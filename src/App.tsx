@@ -24,12 +24,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { HomePage } from './pages/HomePage'
 import { useReducedMotion } from './hooks/useReducedMotion'
-import { recordVisit } from './lib/analytics'
 import { getPuzzlePath, getStandaloneEdges } from './lib/puzzleGeometry'
 
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(module => ({ default: module.ProjectsPage })))
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage').then(module => ({ default: module.ProjectDetailPage })))
 const AchievementsPage = lazy(() => import('./pages/AchievementsPage').then(module => ({ default: module.AchievementsPage })))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(module => ({ default: module.PrivacyPage })))
 
 const getPath = () => window.location.pathname.replace(/\/+$/, '') || '/'
 const pathOrder = (path: string) => {
@@ -106,6 +106,7 @@ function TransitionOverlay({ visible, direction }: { visible: boolean; direction
 function RoutePage({ path }: { path: string }) {
   if (path === '/projects') return <ProjectsPage />
   if (path === '/achievements') return <AchievementsPage />
+  if (path === '/privacy') return <PrivacyPage />
   if (path.startsWith('/projects/')) return <ProjectDetailPage slug={decodeURIComponent(path.slice('/projects/'.length))} />
   return <HomePage />
 }
@@ -120,10 +121,6 @@ export default function App() {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward')
   const previousPathRef = useRef(path)
 
-    // Initialize analytics on first app load
-    useEffect(() => {
-      recordVisit()
-    }, [])
   const reduced = useReducedMotion()
 
   useEffect(() => {

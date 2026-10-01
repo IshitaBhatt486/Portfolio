@@ -20,20 +20,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      (() => {
-        try {
-          const saved = localStorage.getItem('portfolio:theme')
-          const theme = saved === 'light' || saved === 'dark'
-            ? saved
-            : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-          document.documentElement.dataset.theme = theme
-          document.documentElement.style.colorScheme = theme
-        } catch {
-          document.documentElement.dataset.theme = 'light'
-        }
-      })()
-    </script>
+    <script src="/theme-init.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

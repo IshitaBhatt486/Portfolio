@@ -29,7 +29,7 @@ async function initDatabase(db: D1Database): Promise<void> {
     await db.prepare(`CREATE INDEX IF NOT EXISTS idx_session_id ON visits(session_id)`).run();
     await db.prepare(`CREATE INDEX IF NOT EXISTS idx_timestamp ON visits(timestamp)`).run();
     await db.prepare(`CREATE INDEX IF NOT EXISTS idx_page ON visits(page)`).run();
-  } catch (error) {
+  } catch {
     // Table likely exists - silently continue
   }
 }
@@ -92,7 +92,7 @@ async function recordVisit(
 /**
  * Get public statistics
  */
-async function getStats(db: D1Database): Promise<Record<string, any>> {
+async function getStats(db: D1Database): Promise<Record<string, unknown>> {
   try {
     const now = Math.floor(Date.now() / 1000);
     const oneDayAgo = now - 86400;
@@ -178,7 +178,7 @@ export default {
     // Initialize DB
     try {
       await initDatabase(env.ANALYTICS_DB);
-    } catch (e) {
+    } catch {
       // Continue
     }
 
@@ -219,7 +219,7 @@ export default {
           status: result.success ? 200 : 400,
           headers: { "Content-Type": "application/json", ...corsHeaders() },
         });
-      } catch (error) {
+      } catch {
         return new Response(
           JSON.stringify({ success: false, message: "Invalid request" }),
           { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders() } }

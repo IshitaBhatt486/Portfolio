@@ -1,10 +1,11 @@
-import { Code2, GitBranch, Menu, Network, X } from 'lucide-react'
+import { Code2, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { portfolio } from '../data/portfolio'
 import { Container } from './Container'
 import { ThemeToggle } from './ThemeToggle'
+import { GitHubIcon, LinkedInIcon } from './SocialIcons'
 
-const icons = { github: GitBranch, linkedin: Network, code: Code2 }
+const icons = { github: GitHubIcon, linkedin: LinkedInIcon, code: Code2 }
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
@@ -91,7 +92,6 @@ export function Navbar() {
                   rel="noreferrer"
                   aria-label={link.label}
                   title={link.label}
-                  className="has-tooltip"
                 >
                   <Icon size={16} aria-hidden />
                 </a>
